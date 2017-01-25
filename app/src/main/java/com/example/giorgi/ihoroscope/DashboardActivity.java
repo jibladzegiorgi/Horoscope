@@ -20,7 +20,7 @@ import retrofit2.Response;
 public class DashboardActivity extends AppCompatActivity {
     RecyclerView horoscopeRecyclerView;
     CustomAdapter adapter;
-    List<HoroscopeModel> modelList;
+   public static List<HoroscopeModel> modelList;
 
 
     @Override

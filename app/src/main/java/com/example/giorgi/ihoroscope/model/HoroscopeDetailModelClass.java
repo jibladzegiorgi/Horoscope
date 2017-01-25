@@ -10,14 +10,13 @@ import com.google.gson.annotations.SerializedName;
 public class HoroscopeDetailModelClass {
     @SerializedName("name")
     @Expose
-    private String name;
+    private String horoscopeDetail;
 
-    public String getName() {
-        return name;
+    public String getHoroscopeDetail() {
+        return horoscopeDetail;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setHoroscopeDetail(String horoscopeDetail) {
+        this.horoscopeDetail = horoscopeDetail;
     }
-
 }

@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:paddingTop="15dp"
+    android:paddingTop="20dp"
     tools:context="com.example.giorgi.ihoroscope.DetailActivity">
 
     <TextView
@@ -16,6 +16,23 @@
         android:textSize="16sp"
         android:textColor="@android:color/white"
         android:layout_gravity="center_horizontal"
-        android:id="@+id/detail_horoscope_id"/>
+        android:id="@+id/detail_horoscope_name_id"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/detail_image_id"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingRight="36dp"
+        android:textSize="22sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        android:id="@+id/detail_description_id"/>
 
 </LinearLayout>
