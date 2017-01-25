@@ -3,30 +3,38 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
-    android:orientation="vertical"
-   >
+    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/horoscope_image"
-        android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:src="@mipmap/ic_launcher" />
-
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:id="@+id/horoscope_name"
-        android:textColor="@android:color/white"
-        android:text="ვერძი" />
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:id="@+id/horoscope_date"
-        android:text="მარ 21-აპრ 19" />
+        <ImageView
+            android:id="@+id/horoscope_image"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/ic_launcher" />
 
+        <TextView
+            android:id="@+id/horoscope_name"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="ვერძი"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/horoscope_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textSize="12sp"
+            android:text="მარ 21-აპრ 19"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
 </LinearLayout>
