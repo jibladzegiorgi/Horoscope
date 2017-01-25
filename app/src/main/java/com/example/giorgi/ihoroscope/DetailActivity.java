@@ -1,5 +1,7 @@
 package com.example.giorgi.ihoroscope;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,13 +27,16 @@ public class DetailActivity extends AppCompatActivity {
     TextView detailHoroscopeName,detailText;
     ImageView detailImage;
     int positio;
-
+    ProgressDialog progressDialog;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+        progressDialog=new ProgressDialog(this);
+        progressDialog.setMessage("დაელოდეთ");
+        progressDialog.show();
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
@@ -64,6 +69,7 @@ public class DetailActivity extends AppCompatActivity {
                 detailHoroscopeName.setText(modelClass.getName());
                 detailImage.setImageResource(modelClass.getImage());
                 detailText.setText(detailModelClass.getHoroscopeDetail());
+                progressDialog.dismiss();
             }
 
             @Override
