@@ -23,7 +23,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DetailActivity extends AppCompatActivity {
-    private final String language="georgian";
     TextView detailHoroscopeName,detailText;
     ImageView detailImage;
     int positio;
@@ -34,9 +33,8 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-        progressDialog=new ProgressDialog(this);
-        progressDialog.setMessage("დაელოდეთ");
-        progressDialog.show();
+
+
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
@@ -53,29 +51,10 @@ public class DetailActivity extends AppCompatActivity {
             // and get whatever type user account id is
         }
 
-        makeRequset();
-    }
-
-    private void makeRequset() {
-        ApiInterface anInterface= ApiClient.getClient()
-                .create(ApiInterface.class);
-        Call<List<HoroscopeDetailModelClass>> call=anInterface.getHoroscopeDetail(language);
-        call.enqueue(new Callback<List<HoroscopeDetailModelClass>>() {
-            @Override
-            public void onResponse(Call<List<HoroscopeDetailModelClass>> call, Response<List<HoroscopeDetailModelClass>> response) {
-                List list =response.body();
-                HoroscopeDetailModelClass detailModelClass= (HoroscopeDetailModelClass) list.get(positio);
-                HoroscopeModel modelClass =DashboardActivity.modelList.get(positio);
-                detailHoroscopeName.setText(modelClass.getName());
-                detailImage.setImageResource(modelClass.getImage());
-                detailText.setText(detailModelClass.getHoroscopeDetail());
-                progressDialog.dismiss();
-            }
-
-            @Override
-            public void onFailure(Call<List<HoroscopeDetailModelClass>> call, Throwable t) {
-
-            }
-        });
+        HoroscopeDetailModelClass detailModelClass= (HoroscopeDetailModelClass) DashboardActivity.list.get(positio);
+        HoroscopeModel modelClass =DashboardActivity.modelList.get(positio);
+        detailHoroscopeName.setText(modelClass.getName());
+        detailImage.setImageResource(modelClass.getImage());
+        detailText.setText(detailModelClass.getHoroscopeDetail());
     }
 }

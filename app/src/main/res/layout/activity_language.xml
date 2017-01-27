@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_language"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.giorgi.ihoroscope.LanguageActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rate"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:orientation="vertical"
+        android:weightSum="3">
+
+        <ImageView
+            android:id="@+id/geo_id"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:onClick="choseLanguage"
+            android:layout_weight="1"
+            android:src="@drawable/geolang" />
+
+        <ImageView
+            android:id="@+id/en_id"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:onClick="choseLanguage"
+            android:src="@drawable/englang" />
+
+        <ImageView
+            android:id="@+id/ru_id"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:onClick="choseLanguage"
+            android:layout_weight="1"
+            android:src="@drawable/ruslang" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/rate"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_above="@+id/ads"
+        android:gravity="center_horizontal"
+        android:text="შეგვაფასეთ !"
+        android:textColor="@android:color/white"
+        android:textSize="22sp" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/ads"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:id="@+id/sattings"
+            android:src="@drawable/settings" />
+    </RelativeLayout>
+
+</RelativeLayout>

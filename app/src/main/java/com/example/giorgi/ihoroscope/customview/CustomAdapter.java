@@ -69,4 +69,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             horoscopeDate= (TextView) itemView.findViewById(R.id.horoscope_date);
         }
     }
+    public void swapItems(List<HoroscopeModel> items) {
+        this.horoscopeModelList = items;
+        notifyDataSetChanged();
+    }
 }
