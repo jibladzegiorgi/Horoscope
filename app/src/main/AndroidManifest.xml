@@ -23,13 +23,7 @@
             android:theme="@android:style/Theme.Translucent" />
         <activity
             android:name=".DashboardActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".DetailActivity"
             android:screenOrientation="portrait" />
@@ -42,7 +36,13 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".LanguageActivity" />
+        <activity android:name=".LanguageActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

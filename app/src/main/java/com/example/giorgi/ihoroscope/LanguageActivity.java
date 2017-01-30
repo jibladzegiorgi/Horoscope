@@ -14,7 +14,7 @@ import java.util.Locale;
 
 public class LanguageActivity extends AppCompatActivity implements ConnectivityReceiver.ConnectivityReceiverListener {
     Intent intent;
-    public static String lang;
+    String lang;
     private AdView ad;
 
     @Override
@@ -40,13 +40,22 @@ public class LanguageActivity extends AppCompatActivity implements ConnectivityR
     public void choseLanguage(View view) {
         switch (view.getId()) {
             case R.id.geo_id:
-
+                lang="georgian";
+                intent=new Intent(LanguageActivity.this,DashboardActivity.class);
+                intent.putExtra("language",lang);
+                startActivity(intent);
                 break;
             case R.id.ru_id:
-                DashboardActivity.choseLanguage="ru";
-                finish();
+                lang="russian";
+                intent=new Intent(LanguageActivity.this,DashboardActivity.class);
+                intent.putExtra("language",lang);
+                startActivity(intent);
                 break;
             case R.id.en_id:
+                lang="english";
+                intent=new Intent(LanguageActivity.this,DashboardActivity.class);
+                intent.putExtra("language",lang);
+                startActivity(intent);
                 break;
         }
     }

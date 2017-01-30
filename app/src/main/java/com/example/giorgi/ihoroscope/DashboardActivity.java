@@ -33,8 +33,7 @@ import retrofit2.Response;
 public class DashboardActivity extends AppCompatActivity implements ConnectivityReceiver.ConnectivityReceiverListener {
     RecyclerView horoscopeRecyclerView;
     CustomAdapter adapter;
-    private final String language = "georgian";
-    public static String choseLanguage;
+    private String language;
     List internet;
     public static List<HoroscopeModel> modelList;
     public static List list;
@@ -48,19 +47,25 @@ public class DashboardActivity extends AppCompatActivity implements Connectivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        Bundle extras = getIntent().getExtras();
+
+        if (extras != null) {
+            language = extras.getString("language");
+            // and get whatever type user account id is
+        }
+
+
         ad = (AdView) findViewById(R.id.adreq);
 
         list = new ArrayList();
 
         progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage(getResources().getString(R.string.load));
 
         customDialg = null;
 
         internet = new ArrayList();
 
         checkConnection();
-
 
         fillList();
 
@@ -83,15 +88,16 @@ public class DashboardActivity extends AppCompatActivity implements Connectivity
         });
     }
 
+
     @Override
     protected void onResume() {
         super.onResume();
-        if (choseLanguage != null) {
-            if (choseLanguage == "ru") {
-                fillRUList();
-                adapter.swapItems(modelList);
-            }
-        }
+//        if (choseLanguage != null) {
+//            if (choseLanguage == "ru") {
+//                fillRUList();
+//                adapter.swapItems(modelList);
+//            }
+//        }
     }
 
     private void fillRUList() {
@@ -154,6 +160,24 @@ public class DashboardActivity extends AppCompatActivity implements Connectivity
 
 
     private void fillList() {
+        fillGEOList();
+        switch (language){
+            case "georgian":
+                progressDialog.setMessage(getResources().getString(R.string.load));
+                fillGEOList();
+                break;
+            case "russian":
+                progressDialog.setMessage("подождите");
+                fillRUList();
+                break;
+            case "english":
+                progressDialog.setMessage(getResources().getString(R.string.load));
+                break;
+        }
+
+    }
+
+    private void fillGEOList() {
         modelList = new ArrayList<>();
         HoroscopeModel model_1 = new HoroscopeModel("ვერძი", getResources().getIdentifier("aries", "drawable", this.getPackageName()), "მარ 21-აპრ 19");
         HoroscopeModel model_2 = new HoroscopeModel("კურო", getResources().getIdentifier("taurus", "drawable", this.getPackageName()), "აპრ 20-მაი 20");
@@ -179,7 +203,6 @@ public class DashboardActivity extends AppCompatActivity implements Connectivity
         modelList.add(model_10);
         modelList.add(model_11);
         modelList.add(model_12);
-
     }
 
 
