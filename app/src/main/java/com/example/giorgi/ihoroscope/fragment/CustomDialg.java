@@ -35,6 +35,7 @@ public class CustomDialg extends DialogFragment {
         view = inflater.inflate(R.layout.activity_dialog, container, false);
         getDialog().getWindow().setBackgroundDrawableResource(R.drawable.dialog_corner);
 
+
         String lan = getActivity().getSharedPreferences("PREFERENCE", MODE_PRIVATE)
                 .getString("language", "");
 

@@ -11,10 +11,11 @@
     tools:context="com.example.giorgi.ihoroscope.LanguageActivity">
 
     <LinearLayout
+        android:id="@+id/lang_cont"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_above="@+id/ads"
+        android:layout_alignParentTop="true"
         android:layout_marginLeft="60dp"
         android:layout_marginRight="60dp"
         android:orientation="vertical"
@@ -45,6 +46,17 @@
             android:src="@drawable/ruslang" />
 
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rite"
+        android:onClick="choseLanguage"
+        android:layout_alignBottom="@+id/lang_cont"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff"
+        android:text="შეგვაფასეთ!"
+        android:textSize="20sp" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/ads"

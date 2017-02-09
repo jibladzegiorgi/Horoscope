@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
@@ -105,6 +106,9 @@ public class DashboardActivity extends AppCompatActivity implements Connectivity
     @Override
     protected void onResume() {
         super.onResume();
+        if (customDialg.isAdded()){
+            customDialg.dismiss();
+        }
         checkConnection();
 //        if (choseLanguage != null) {
 //            if (choseLanguage == "ru") {
@@ -119,6 +123,9 @@ public class DashboardActivity extends AppCompatActivity implements Connectivity
     public void onNetworkConnectionChanged(boolean isConnected) {
         if (isConnected) {
             checkConnection();
+            customDialg.dismiss();
+        }
+        if (customDialg.isAdded()){
             customDialg.dismiss();
         }
         startADS();
@@ -164,11 +171,11 @@ public class DashboardActivity extends AppCompatActivity implements Connectivity
         fillGEOList();
         switch (language) {
             case "georgian":
-                progressDialog.setMessage(getResources().getString(R.string.load));
+                progressDialog.setMessage("იტვირთება");
                 fillGEOList();
                 break;
             case "russian":
-                progressDialog.setMessage("подождите");
+                progressDialog.setMessage("Подождите");
                 fillRUList();
                 break;
             case "english":
@@ -178,6 +185,11 @@ public class DashboardActivity extends AppCompatActivity implements Connectivity
         }
 
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+    }
+
 
     private void fillGEOList() {
         modelList = new ArrayList<>();
@@ -266,9 +278,9 @@ public class DashboardActivity extends AppCompatActivity implements Connectivity
 
     private void makeRequset() {
         if (list.size() == 0) {
-            if (customDialg.isAdded()) {
-                customDialg.dismiss();
-            }
+//            if (customDialg.isAdded()) {
+//                customDialg.dismiss();
+//            }
             progressDialog.show();
             progressDialog.setCancelable(false);
             ApiInterface anInterface = ApiClient.getClient()
