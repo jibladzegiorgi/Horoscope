@@ -26,7 +26,6 @@ public class DetailActivity extends AppCompatActivity {
     TextView detailHoroscopeName,detailText;
     ImageView detailImage;
     int positio;
-    ProgressDialog progressDialog;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -35,10 +34,10 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
 
-        getWindow().getDecorView().setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        getWindow().setStatusBarColor(Color.TRANSPARENT);
+//        getWindow().getDecorView().setSystemUiVisibility(
+//                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+//                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+//        getWindow().setStatusBarColor(Color.TRANSPARENT);
 
         detailHoroscopeName = (TextView) findViewById(R.id.detail_horoscope_name_id);
         detailText= (TextView) findViewById(R.id.detail_description_id);
@@ -55,6 +54,7 @@ public class DetailActivity extends AppCompatActivity {
         HoroscopeModel modelClass =DashboardActivity.modelList.get(positio);
         detailHoroscopeName.setText(modelClass.getName());
         detailImage.setImageResource(modelClass.getImage());
-        detailText.setText(detailModelClass.getHoroscopeDetail());
+        detailText.setText(detailModelClass.getHoroscopeDetail().trim());
+
     }
 }

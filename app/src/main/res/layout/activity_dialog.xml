@@ -2,53 +2,52 @@
 <android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <android.support.percent.PercentRelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_heightPercent="18%"
-        app:layout_widthPercent="75%">
+        android:padding="10dp"
+        app:layout_heightPercent="25%"
+        app:layout_widthPercent="90%">
+
+
+        <TextView
+            android:id="@+id/description_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:layout_alignParentStart="true"
+            android:paddingTop="15dp"
+            android:text="გთხოვთ შეამოწმეთ ინტერნეტ კავშირი"
+            android:textSize="12sp"
+            android:layout_alignParentLeft="true" />
+
+        <TextView
+            android:id="@+id/setting_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:text="Setting"
+            android:textColor="#df2424"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
+            android:textStyle="bold"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:paddingTop="5dp"
-            android:layout_centerHorizontal="true"
-            android:text="ინტერნეტ" />
-
-        <LinearLayout
-            android:id="@+id/line"
-            android:layout_width="match_parent"
-            android:paddingTop="5dp"
-            android:layout_height="1dp"
-            android:layout_below="@+id/title"
-            android:background="@android:color/black"
-            android:orientation="horizontal" />
-
-        <TextView
-            android:paddingTop="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:id="@+id/static_text"
-            android:layout_below="@+id/line"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:text="გთხოვთ შეამოწმეთ ინტერნეტ კავშირი"
-            android:textSize="12sp" />
-
-        <Button
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:id="@+id/setting_button"
-            android:layout_below="@+id/static_text"
-            android:layout_centerHorizontal="true"
-            android:text="Setting"
-            />
+            android:text="შეცდომა!"
+            android:layout_alignLeft="@+id/description_text"
+            android:layout_alignStart="@+id/description_text" />
     </android.support.percent.PercentRelativeLayout>
 </android.support.percent.PercentRelativeLayout>
